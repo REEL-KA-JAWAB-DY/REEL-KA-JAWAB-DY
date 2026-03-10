@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wait 😭</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<div class="hearts"></div>
+
+<body>
+    <div class="container">
+        <h1>Nhi assy nhi krty </h1>
+        <img src="no.gif" alt="no gif">
+
+        <div class="buttons">
+            <a href="index.html"><button>Try Again</button></a>
+        </div>
+    </div>
+
+<script>
+
+function createHeart(){
+
+    const heart = document.createElement("span");
+    heart.innerHTML = ["💗","💖","💞","💕"][Math.floor(Math.random()*4)];
+
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (16 + Math.random()*20) + "px";
+    heart.style.animationDuration = (5 + Math.random()*5) + "s";
+
+    document.querySelector(".hearts").appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },10000);
+}
+
+setInterval(createHeart,2000);
+
+/* CURSOR TRAIL */
+
+document.addEventListener("mousemove", function(e){
+
+const trail = document.createElement("div");
+trail.className = "cursor-trail";
+
+trail.style.left = e.clientX + "px";
+trail.style.top = e.clientY + "px";
+
+document.body.appendChild(trail);
+
+setTimeout(()=>{
+trail.remove();
+},600);
+
+});
+
+</script>
+
+</body>
+</html>

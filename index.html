@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<div class="hearts"></div>
+
+    <title>For You ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Ma nay tum hary liye kuch banaya ha 💜<br>Dekhna chao gi?</h1>
+        <img src="cute.gif" alt="cute gif">
+
+        <div class="buttons">
+            <a href="yes.html"><button>YES</button></a>
+            <a href="no.html"><button>NO</button></a>
+        </div>
+    </div>
+
+<script>
+
+function createHeart(){
+
+    const heart = document.createElement("span");
+    heart.innerHTML = ["💗","💖","💞","🎂","🍰","🎈"][Math.floor(Math.random()*6)];
+
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (16 + Math.random()*20) + "px";
+    heart.style.animationDuration = (5 + Math.random()*5) + "s";
+
+    document.querySelector(".hearts").appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },10000);
+}
+
+setInterval(createHeart,3000);
+
+/* CURSOR TRAIL */
+
+document.addEventListener("mousemove", function(e){
+
+const trail = document.createElement("div");
+trail.className = "cursor-trail";
+
+trail.style.left = e.clientX + "px";
+trail.style.top = e.clientY + "px";
+
+document.body.appendChild(trail);
+
+setTimeout(()=>{
+trail.remove();
+},600);
+
+});
+
+</script>
+
+</body>
+</html>
